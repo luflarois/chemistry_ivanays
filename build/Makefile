@@ -18,10 +18,6 @@ SOURCES = ../src/chem/chem_spack_fexchem.f90 \
 		../app/main.f90
 OBJECTS = $(SOURCES:.f90=.o)
 
-# Biblioteca externa
-LIB_DIR = ./#../utils_c
-LIB_NAME = lib_utils.a
-
 # Regra padrão
 all: $(UTILS_TARGET) $(EXEC)
 

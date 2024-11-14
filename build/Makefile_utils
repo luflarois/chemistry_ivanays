@@ -1,4 +1,5 @@
 # Define variables
+
 SOURCES = ../src/utils_c/spAllocate.c \
 	      ../src/utils_c/spBuild.c \
 	      ../src/utils_c/spFactor.c \
@@ -8,8 +9,10 @@ SOURCES = ../src/utils_c/spAllocate.c \
 	      ../src/utils_c/spFortran.c
 OBJS = $(SOURCES:.c=.o)
 CC = gcc
-CFLAGS = -fpermissive -std=gnu89
-LDFLAGS = -static
+INCLUDE_DIR = ../include
+CFLAGS = -fpermissive -std=gnu89 -I$(INCLUDE_DIR)
+LDFLAGS = -static 
+
 
 # Regras
 all: libutils.a
