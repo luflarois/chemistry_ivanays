@@ -1,0 +1,24 @@
+# Define variables
+SOURCES = ../src/utils_c/spAllocate.c \
+	      ../src/utils_c/spBuild.c \
+	      ../src/utils_c/spFactor.c \
+	      ../src/utils_c/spOutput.c \
+	      ../src/utils_c/spSolve.c \
+	      ../src/utils_c/spUtils.c \
+	      ../src/utils_c/spFortran.c
+OBJS = $(SOURCES:.c=.o)
+CC = gcc
+CFLAGS = -fpermissive -std=gnu89
+LDFLAGS = -static
+
+# Regras
+all: libutils.a
+
+libutils.a: $(OBJS)
+	ar rcs libutils.a $(OBJS)
+
+$(OBJS): %.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f *.o libutils.a
